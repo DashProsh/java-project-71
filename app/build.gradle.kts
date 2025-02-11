@@ -23,6 +23,7 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.3"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("org.apache.commons:commons-lang3:3.13.0")
+    implementation("info.picocli:picocli:4.7.6")
 }
 
 tasks.test {
