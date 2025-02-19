@@ -15,11 +15,11 @@ import java.util.Map;
 
 class App implements Runnable {
 
-    @Option(names = { "-h", "--help" }, usageHelp = true, description = "Show this help message and exit.")
-    boolean usageHelpRequested;
-
-    @Option(names = { "-V", "--version" }, versionHelp = true, description = "Print version information and exit.")
-    boolean versionInfoRequested;
+//    @Option(names = { "-h", "--help" }, usageHelp = true, description = "Show this help message and exit.")
+//    boolean usageHelpRequested;
+//
+//    @Option(names = { "-V", "--version" }, versionHelp = true, description = "Print version information and exit.")
+//    boolean versionInfoRequested;
 
     @Option(names = { "-f", "--format " }, paramLabel = "format",
             description = "output format [default: stylish]", defaultValue = "stylish")
@@ -35,11 +35,8 @@ class App implements Runnable {
     @Override
     public void run() {
         try {
-            Map<String, Object> data1 = JsonParser.readJsonFile(filepath1);
-            Map<String, Object> data2 = JsonParser.readJsonFile(filepath2);
-
-            System.out.println("Файл 1: " + data1);
-            System.out.println("Файл 2: " + data2);
+            String diff = Differ.generate(filepath1, filepath2);
+            System.out.println(diff);
         } catch (IOException e) {
             System.err.println("Ошибка при чтении файла: " + e.getMessage());
         }
@@ -48,12 +45,4 @@ class App implements Runnable {
     public static void main(String[] args) {
         new CommandLine(new App()).execute(args);
     }
-
-    public class JsonParser {
-        public static Map<String, Object> readJsonFile(String filePath) throws IOException {
-            ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.readValue(new File("src/main/resources/" + filePath), Map.class);
-        }
-    }
 }
-
