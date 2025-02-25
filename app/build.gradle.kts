@@ -36,6 +36,13 @@ tasks.test {
     }
 }
 
+checkstyle {
+    toolVersion = "10.12.1" // Убедись, что используешь актуальную версию
+    configFile = file("${rootProject.projectDir}/config/checkstyle/checkstyle.xml")
+    isIgnoreFailures = false // Если true, ошибки не будут прерывать билд
+    isShowViolations = true // Показывает найденные проблемы
+}
+
 tasks.jacocoTestReport {
     reports {
         xml.required.set(true)

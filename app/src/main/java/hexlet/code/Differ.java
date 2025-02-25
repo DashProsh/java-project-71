@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
@@ -8,14 +9,19 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+
+
 public class Differ {
 
     public static String generate(String filePath1, String filePath2) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
 
         // Читаю JSON и складываю в Map
-        Map<String, Object> fileInfo1 = objectMapper.readValue(new File("src/main/resources/" + filePath1), Map.class);
-        Map<String, Object> fileInfo2 = objectMapper.readValue(new File("src/main/resources/" + filePath2), Map.class);
+
+        Map<String, Object> fileInfo1 = objectMapper.readValue(new File("src/main/resources/" + filePath1),
+                new TypeReference<Map<String, Object>>() { });
+        Map<String, Object> fileInfo2 = objectMapper.readValue(new File("src/main/resources/" + filePath2),
+                new TypeReference<Map<String, Object>>() { });
 
         return generateDiff(fileInfo1, fileInfo2);
     }
@@ -28,8 +34,8 @@ public class Differ {
         allKeys.addAll(fileInfo2.keySet());
 
         // тут буду хранить результат сравнения
-        StringBuilder differences = new StringBuilder("\n" +
-                "{\n");
+        StringBuilder differences = new StringBuilder("\n"
+                + "{\n");
 
         //сравниваю по значениям и вывожу обратно ключ-значение
         for (String key : allKeys) {
@@ -42,7 +48,8 @@ public class Differ {
             } else {
                 if (value1 != null) {
                     differences.append("  - ").append(key).append(": ").append(value1).append("\n");
-                } if (value2 != null) {
+                }
+                if (value2 != null) {
                     differences.append("  + ").append(key).append(": ").append(value2).append("\n");
                 }
             }
