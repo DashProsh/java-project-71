@@ -12,6 +12,7 @@ dependencies {
     implementation("info.picocli:picocli:4.7.6")
     annotationProcessor("info.picocli:picocli-codegen:4.7.6") // Для генерации кода
     implementation("com.fasterxml.jackson.core:jackson-databind:2.15.0")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 }
 
 application {
@@ -20,5 +21,12 @@ application {
 
 checkstyle {
     toolVersion = "10.12.3"
-    configFile = file("${rootProject.projectDir}/config/checkstyle/checkstyle.xml")
+    configFile = file("config/checkstyle/checkstyle.xml")
+}
+
+tasks.test {
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
 }
