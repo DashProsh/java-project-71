@@ -23,16 +23,16 @@ public class Differ {
         StringBuilder differences = new StringBuilder("\n{\n");
 
         for (String key : allKeys) {
-            Object value1 = fileInfo1.get(key);
-            Object value2 = fileInfo2.get(key);
+            Object value1 = fileInfo1.getOrDefault(key, null);
+            Object value2 = fileInfo2.getOrDefault(key, null);
 
             if (value1 != null && value2 != null && value1.equals(value2)) {
                 differences.append("    ").append(key).append(": ").append(value1).append("\n");
             } else {
-                if (value1 != null) {
+                if (fileInfo1.containsKey(key)) { // Ключ был в первом файле
                     differences.append("  - ").append(key).append(": ").append(value1).append("\n");
                 }
-                if (value2 != null) {
+                if (fileInfo2.containsKey(key)) { // Ключ был во втором файле
                     differences.append("  + ").append(key).append(": ").append(value2).append("\n");
                 }
             }
