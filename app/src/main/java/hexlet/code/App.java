@@ -11,13 +11,7 @@ import java.io.IOException;
 
 class App implements Runnable {
 
-//    @Option(names = { "-h", "--help" }, usageHelp = true, description = "Show this help message and exit.")
-//    boolean usageHelpRequested;
-//
-//    @Option(names = { "-V", "--version" }, versionHelp = true, description = "Print version information and exit.")
-//    boolean versionInfoRequested;
-
-    @Option(names = { "-f", "--format " }, paramLabel = "format",
+    @Option(names = { "-f", "--format" }, paramLabel = "format",
             description = "output format [default: stylish]", defaultValue = "stylish")
     private String format;
 
@@ -31,7 +25,7 @@ class App implements Runnable {
     @Override
     public void run() {
         try {
-            String diff = Differ.generate(filePath1, filePath2);
+            String diff = Differ.generate(filePath1, filePath2, format);
             System.out.println(diff);
         } catch (IOException e) {
             System.err.println("Ошибка при чтении файла: " + e.getMessage());
@@ -42,3 +36,10 @@ class App implements Runnable {
         new CommandLine(new App()).execute(args);
     }
 }
+
+
+//    @Option(names = { "-h", "--help" }, usageHelp = true, description = "Show this help message and exit.")
+//    boolean usageHelpRequested;
+//
+//    @Option(names = { "-V", "--version" }, versionHelp = true, description = "Print version information and exit.")
+//    boolean versionInfoRequested;
