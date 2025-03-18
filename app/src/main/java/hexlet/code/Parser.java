@@ -22,6 +22,6 @@ public class Parser {
         }
 
         return objectMapper.readValue(new File("src/main/resources/" + filePath),
-                new TypeReference<Map<String, Object>>() {});
+                new TypeReference<Map<String, Object>>() { });
     }
 }

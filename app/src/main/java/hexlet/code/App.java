@@ -36,10 +36,3 @@ class App implements Runnable {
         new CommandLine(new App()).execute(args);
     }
 }
-
-
-//    @Option(names = { "-h", "--help" }, usageHelp = true, description = "Show this help message and exit.")
-//    boolean usageHelpRequested;
-//
-//    @Option(names = { "-V", "--version" }, versionHelp = true, description = "Print version information and exit.")
-//    boolean versionInfoRequested;

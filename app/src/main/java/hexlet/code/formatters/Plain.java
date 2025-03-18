@@ -20,7 +20,7 @@ public class Plain {
                 case "removed" -> result.append(String.format("Property '%s' was removed\n", key));
                 case "updated" -> result.append(String.format("Property '%s' was updated. From %s to %s\n",
                         key, formatValue(oldValue), formatValue(newValue)));
-                default -> {} // Игнорируем "unchanged" (оставленные без изменений)
+                default -> { }
             }
         }
         return result.toString();
