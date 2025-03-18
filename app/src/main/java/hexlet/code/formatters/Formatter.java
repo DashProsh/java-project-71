@@ -9,6 +9,7 @@ public class Formatter {
         return switch (format) {
             case "plain" -> Plain.format(diff);
             case "stylish" -> Stylish.format(diff);
+            case "json" -> Json.format(diff);
             default -> throw new IllegalArgumentException("Unsupported format: " + format);
         };
     }

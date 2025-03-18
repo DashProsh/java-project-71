@@ -6,7 +6,7 @@ import java.util.Map;
 public class Plain {
 
     public static String format(List<Map<String, Object>> diff) {
-        StringBuilder result = new StringBuilder("\n");
+        StringBuilder result = new StringBuilder();
 
         for (Map<String, Object> entry : diff) {
             String key = (String) entry.get("key");
@@ -23,8 +23,7 @@ public class Plain {
                 default -> {} // Игнорируем "unchanged" (оставленные без изменений)
             }
         }
-
-        return result.toString().trim();
+        return result.toString();
     }
 
     private static String formatValue(Object value) {
