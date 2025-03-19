@@ -22,10 +22,11 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Run Checkstyle and report to Code Climate
+      - name: Run Checkstyle and generate report
         run: ./gradlew checkstyleMain checkstyleTest
 
-      - name: Upload Checkstyle report
-        run: |
-          cc-test-reporter format-coverage app/build/reports/checkstyle/main.xml -t checkstyle
-          cc-test-reporter upload-coverage
+      - name: Upload Checkstyle Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: checkstyle-report
+          path: app/build/reports/checkstyle/
