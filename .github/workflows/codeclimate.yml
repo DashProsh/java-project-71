@@ -22,11 +22,14 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Remove GitHub Actions cache
+        run: rm -rf ~/.cache
+
       - name: Run Checkstyle and generate report
         run: ./gradlew checkstyleMain checkstyleTest
 
-      - name: Upload Checkstyle Report
-        uses: actions/upload-artifact@v3
+      - name: Upload Checkstyle report
+        uses: actions/upload-artifact@v4
         with:
           name: checkstyle-report
-          path: app/build/reports/checkstyle/
+          path: app/build/reports/checkstyle/main.xml
