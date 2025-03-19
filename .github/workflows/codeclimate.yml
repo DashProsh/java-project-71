@@ -22,13 +22,10 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Install CodeClimate Test Reporter
-        run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter && chmod +x ./cc-test-reporter
+      - name: Run Checkstyle and report to Code Climate
+        run: ./gradlew checkstyleMain checkstyleTest
 
-      - name: Run Checkstyle and report to CodeClimate
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      - name: Upload Checkstyle report
         run: |
-          ./gradlew checkstyleMain checkstyleTest
-          ./cc-test-reporter format-coverage build/reports/checkstyle/main.xml --input-type checkstyle
-          ./cc-test-reporter upload-coverage
+          cc-test-reporter format-coverage app/build/reports/checkstyle/main.xml -t checkstyle
+          cc-test-reporter upload-coverage
