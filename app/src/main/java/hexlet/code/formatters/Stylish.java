@@ -20,7 +20,8 @@ public class Stylish {
                     result.append("  - ").append(key).append(": ").append(oldValue).append("\n");
                     result.append("  + ").append(key).append(": ").append(newValue).append("\n");
                 }
-                case "unchanged" -> result.append("    ").append(key).append(": ").append(entry.get("value")).append("\n");
+                case "unchanged" -> result.append("    ").append(key).append(": ")
+                        .append(entry.get("value")).append("\n");
                 default -> { }
             }
         }

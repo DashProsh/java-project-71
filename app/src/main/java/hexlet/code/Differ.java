@@ -5,6 +5,7 @@ import hexlet.code.formatters.Formatter;
 import java.io.IOException;
 import java.util.*;
 
+
 public class Differ {
 
     public static String generate(String filePath1, String filePath2, String format) throws IOException {
