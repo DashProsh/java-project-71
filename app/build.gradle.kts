@@ -1,6 +1,5 @@
 plugins {
     id("application")
-    id("checkstyle")
     id("java")
 }
 
@@ -10,19 +9,14 @@ repositories {
 
 dependencies {
     implementation("info.picocli:picocli:4.7.6")
-    annotationProcessor("info.picocli:picocli-codegen:4.7.6") // Для генерации кода
+    annotationProcessor("info.picocli:picocli-codegen:4.7.6")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.15.0")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.0") // добавляем YAML
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.0")
 }
 
 application {
     mainClass.set("hexlet.code.App")
-}
-
-checkstyle {
-    toolVersion = "10.12.3"
-    configFile = file("config/checkstyle/checkstyle.xml")
 }
 
 tasks.test {
@@ -30,4 +24,9 @@ tasks.test {
     testLogging {
         events("passed", "skipped", "failed")
     }
+}
+
+checkstyle {
+    toolVersion = "10.12.3"
+    configFile = rootProject.file("config/checkstyle/checkstyle.xml")
 }
