@@ -26,7 +26,7 @@ tasks.test {
     }
 }
 
-checkstyle {
+configure<CheckstyleExtension> {
     toolVersion = "10.12.3"
     configFile = rootProject.file("config/checkstyle/checkstyle.xml")
 }
