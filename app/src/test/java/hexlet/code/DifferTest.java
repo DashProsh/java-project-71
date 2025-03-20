@@ -131,7 +131,8 @@ class DifferTest {
     void testGenerateDiffForJsonStylish() throws IOException {
         String filePath1 = "file1.json";
         String filePath2 = "file2.json";
-        String actualDiff = Differ.generate(filePath1, filePath2, "stylish");
+        String format1 = "stylish";
+        String actualDiff = Differ.generate(filePath1, filePath2, format1);
         assertEquals(EXPECTED_JSON_STYLISH.trim(), actualDiff.trim());
         System.out.println("ВСЕ РАБОТАЕТ!");
     }
@@ -140,7 +141,8 @@ class DifferTest {
     void testGenerateDiffForJsonPlain() throws IOException {
         String filePath1 = "file1.yml";
         String filePath2 = "file2.yml";
-        String actualDiff = Differ.generate(filePath1, filePath2, "plain");
+        String format2 = "plain";
+        String actualDiff = Differ.generate(filePath1, filePath2, format2);
         assertEquals(EXPECTED_DIFF_PLAIN.trim(), actualDiff.trim());
         System.out.println("ВСЕ РАБОТАЕТ! лала!");
     }
@@ -149,7 +151,8 @@ class DifferTest {
     void testGenerateDiffForJsonJson() throws IOException {
         String filePath1 = "file1.json";
         String filePath2 = "file2.json";
-        String actualJson = Differ.generate(filePath1, filePath2, "json");
+        String format3 = "json";
+        String actualJson = Differ.generate(filePath1, filePath2, format3 );
         assertEquals(EXPECTED_JSON.trim(), actualJson.trim());
         System.out.println("ВСЕ РАБОТАЕТ! аддада");
     }
