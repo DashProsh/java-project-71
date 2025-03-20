@@ -13,6 +13,14 @@ on:
       - '**'
 
 jobs:
+  clean-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Purge GitHub Actions Cache
+        uses: geekyeggo/delete-cache@v2
+        with:
+          cache: 'gradle'
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -22,3 +30,5 @@ jobs:
         uses: hexlet/project-action@release
         with:
           hexlet-id: ${{ secrets.HEXLET_ID }}
+
+
