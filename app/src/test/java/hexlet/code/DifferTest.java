@@ -154,6 +154,6 @@ class DifferTest {
         String format3 = "json";
         String actualJson = Differ.generate(filePath1, filePath2, format3 );
         assertEquals(EXPECTED_JSON.trim(), actualJson.trim());
-        System.out.println("ВСЕ РАБОТАЕТ! аддада");
+        System.out.println("ВСЕ РАБОТАЕТ! дада");
     }
 }
