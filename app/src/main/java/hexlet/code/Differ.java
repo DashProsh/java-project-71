@@ -60,16 +60,3 @@ public class Differ {
         return diff;
     }
 }
-
-
-
-//      - name: Install CodeClimate Test Reporter
-//run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter && chmod +x ./cc-test-reporter
-//
-//        - name: Run Checkstyle and report to CodeClimate
-//env:
-//CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-//run: |
-//        ./gradlew checkstyleMain checkstyleTest
-//        ./cc-test-reporter format-coverage build/reports/checkstyle/main.xml --input-type checkstyle
-//          ./cc-test-reporter upload-coverage
