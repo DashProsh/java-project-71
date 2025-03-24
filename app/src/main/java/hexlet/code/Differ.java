@@ -22,6 +22,10 @@ public class Differ {
         return Formatter.format(diff, format);
     }
 
+    public static String generate(String filePath1, String filePath2) throws IOException {
+        return generate(filePath1, filePath2, "stylish");
+    }
+
     public static List<Map<String, Object>> calculateDiff(Map<String, Object> fileInfo1,
                                                           Map<String, Object> fileInfo2) {
         Set<String> allKeys = new TreeSet<>();
