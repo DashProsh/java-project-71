@@ -21,7 +21,7 @@ public class Parser {
             throw new IllegalArgumentException("Unsupported file format: " + filePath);
         }
 
-        return objectMapper.readValue(new File("src/main/resources/" + filePath),
+        return objectMapper.readValue(new File("src/main/resources/fixtures/" + filePath),
                 new TypeReference<Map<String, Object>>() { });
     }
 }
