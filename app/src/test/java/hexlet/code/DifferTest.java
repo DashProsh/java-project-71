@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.formatters.Formatter;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -129,30 +130,32 @@ class DifferTest {
 
     @Test
     void testGenerateDiffForJsonStylish() throws IOException {
-        String filePath1 = "file1.json";
-        String filePath2 = "file2.json";
-        String actualDiff = Differ.generate(filePath1, filePath2);
-        assertEquals(EXPECTED_JSON_STYLISH.trim(), actualDiff.trim());
-        System.out.println("ВСЕ РАБОТАЕТ!");
+        var data1 = Parser.parseFromResources("file1.json");
+        var data2 = Parser.parseFromResources("file2.json");
+        var diff = Differ.calculateDiff(data1, data2);
+        var actual = Formatter.format(diff, "stylish");
+        assertEquals(EXPECTED_JSON_STYLISH.trim(), actual.trim());
+        System.out.println("ВСЕ РАБОТАЕТ!!!");
     }
 
     @Test
     void testGenerateDiffForJsonPlain() throws IOException {
-        String filePath1 = "file1.yml";
-        String filePath2 = "file2.yml";
-        String format2 = "plain";
-        String actualDiff = Differ.generate(filePath1, filePath2, format2);
-        assertEquals(EXPECTED_DIFF_PLAIN.trim(), actualDiff.trim());
-        System.out.println("ВСЕ РАБОТАЕТ! лала!");
+        var data1 = Parser.parseFromResources("file1.yml");
+        var data2 = Parser.parseFromResources("file2.yml");
+        var diff = Differ.calculateDiff(data1, data2);
+        var actual = Formatter.format(diff, "plain");
+        assertEquals(EXPECTED_DIFF_PLAIN.trim(), actual.trim());
+        System.out.println("ВСЕ РАБОТАЕТ! лала!!!");
     }
+
 
     @Test
     void testGenerateDiffForJsonJson() throws IOException {
-        String filePath1 = "file1.json";
-        String filePath2 = "file2.json";
-        String format3 = "json";
-        String actualJson = Differ.generate(filePath1, filePath2, format3 );
-        assertEquals(EXPECTED_JSON.trim(), actualJson.trim());
-        System.out.println("ВСЕ РАБОТАЕТ! дада");
+        var data1 = Parser.parseFromResources("file1.json");
+        var data2 = Parser.parseFromResources("file2.json");
+        var diff = Differ.calculateDiff(data1, data2);
+        var actual = Formatter.format(diff, "json");
+        assertEquals(EXPECTED_JSON.trim(), actual.trim());
+        System.out.println("ВСЕ РАБОТАЕТ! дада!!!");
     }
 }
