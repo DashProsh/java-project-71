@@ -34,7 +34,7 @@ public class Parser {
             throw new RuntimeException("Invalid file path: " + fileName, e);
         }
 
-        return objectMapper.readValue(path.toFile(), new TypeReference<Map<String, Object>>() {});
+        return objectMapper.readValue(path.toFile(), new TypeReference<Map<String, Object>>() { });
     }
 
     // Используется из CLI — напрямую с файловой системы
@@ -49,7 +49,7 @@ public class Parser {
             throw new IllegalArgumentException("Unsupported file format: " + filePath);
         }
 
-        return objectMapper.readValue(new File(filePath), new TypeReference<Map<String, Object>>() {});
+        return objectMapper.readValue(new File(filePath), new TypeReference<Map<String, Object>>() { });
     }
 }
 
