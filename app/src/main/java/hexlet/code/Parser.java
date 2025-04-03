@@ -14,7 +14,6 @@ import java.util.Objects;
 
 public class Parser {
 
-    // Используется в тестах (ищет в resources/fixtures)
     public static Map<String, Object> parseFromResources(String fileName) throws IOException {
         ObjectMapper objectMapper;
 
@@ -37,7 +36,7 @@ public class Parser {
         return objectMapper.readValue(path.toFile(), new TypeReference<Map<String, Object>>() { });
     }
 
-    // Используется из CLI — напрямую с файловой системы
+
     public static Map<String, Object> parse(String filePath) throws IOException {
         ObjectMapper objectMapper;
 
