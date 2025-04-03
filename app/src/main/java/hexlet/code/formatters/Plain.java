@@ -23,7 +23,7 @@ public class Plain {
                 default -> { }
             }
         }
-        return result.toString();
+        return result.toString().strip();
     }
 
     private static String formatValue(Object value) {

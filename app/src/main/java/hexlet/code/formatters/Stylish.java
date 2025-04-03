@@ -27,6 +27,6 @@ public class Stylish {
         }
 
         result.append("}\n");
-        return result.toString();
+        return result.toString().strip();
     }
 }
