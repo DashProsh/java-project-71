@@ -134,6 +134,7 @@ class DifferTest {
         var data2 = Parser.parseFromResources("file2.json");
         var diff = Differ.calculateDiff(data1, data2);
         var actual = Formatter.format(diff, "stylish");
+        System.out.println("Actual output: \n" + actual);
         assertEquals(EXPECTED_JSON_STYLISH.strip(), actual.strip());
         System.out.println("ВСЕ РАБОТАЕТ!!!");
     }
@@ -144,6 +145,7 @@ class DifferTest {
         var data2 = Parser.parseFromResources("file2.yml");
         var diff = Differ.calculateDiff(data1, data2);
         var actual = Formatter.format(diff, "plain");
+        System.out.println("Actual output: " + actual);
         assertEquals(EXPECTED_DIFF_PLAIN.strip(), actual.strip());
         System.out.println("ВСЕ РАБОТАЕТ! лала!!!");
     }
@@ -155,6 +157,7 @@ class DifferTest {
         var data2 = Parser.parseFromResources("file2.json");
         var diff = Differ.calculateDiff(data1, data2);
         var actual = Formatter.format(diff, "json");
+        System.out.println("Actual output: " + actual);
         assertEquals(EXPECTED_JSON.strip(), actual.strip());
         System.out.println("ВСЕ РАБОТАЕТ! дада!!!");
     }
