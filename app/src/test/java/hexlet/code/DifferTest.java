@@ -40,7 +40,8 @@ class DifferTest {
     void testGenerateJsonJson() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         var expected = mapper.readTree(readExpected("expectedJson.json"));
-        var actual = mapper.readTree(Differ.generate(getFixturePath("file1.json"), getFixturePath("file2.json"), "json"));
+        var actual = mapper.readTree(Differ.generate(getFixturePath("file1.json"), getFixturePath("file2.json"),
+                "json"));
         assertEquals(expected, actual);
         System.out.println("3 ВСЕ РАБОТАЕТ");
     }
@@ -66,7 +67,8 @@ class DifferTest {
     void testGenerateYamlJson() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         var expected = mapper.readTree(readExpected("expectedJson.json"));
-        var actual = mapper.readTree(Differ.generate(getFixturePath("file1.yml"), getFixturePath("file2.yml"), "json"));
+        var actual = mapper.readTree(Differ.generate(getFixturePath("file1.yml"), getFixturePath("file2.yml"),
+                "json"));
         assertEquals(expected, actual);
         System.out.println("6 ВСЕ РАБОТАЕТ");
     }
