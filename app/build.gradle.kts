@@ -45,10 +45,6 @@ tasks.jacocoTestReport {
     }
 }
 
-tasks.getByName<JavaExec>("run") {
-    standardInput = System.`in`
-}
-
 checkstyle {
     toolVersion = "10.12.4"
 }
