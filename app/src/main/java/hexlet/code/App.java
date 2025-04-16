@@ -25,10 +25,20 @@ class App implements Runnable {
     @Override
     public void run() {
         try {
-            String diff = Differ.generate(filePath1, filePath2, format);
+            String diff = DifferThreeParameters.generate(filePath1, filePath2, format);
             System.out.println(diff);
         } catch (IOException e) {
             System.err.println("Ошибка при чтении файла: " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            if (e.getMessage().contains("Unsupported file format")) {
+                System.err.println("Ошибка: неподдерживаемый формат файла. Поддерживаемые форматы: .json, .yaml, .yml.");
+            } else if (e.getMessage().contains("Invalid file path")) {
+                System.err.println("Ошибка: неверный путь к файлу. Проверьте правильность пути.");
+            } else {
+                System.err.println("Ошибка: " + e.getMessage());
+            }
+        } catch (Exception e) {
+            System.err.println("Произошла ошибка: " + e.getMessage());
         }
     }
 

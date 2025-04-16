@@ -23,7 +23,7 @@ class DifferTest {
     @Test
     void testGenerateJsonStylish() throws IOException {
         String expected = readExpected("expectedStylish.txt");
-        String actual = Differ.generate(getFixturePath("file1.json"), getFixturePath("file2.json"), "stylish");
+        String actual = DifferThreeParameters.generate(getFixturePath("file1.json"), getFixturePath("file2.json"), "stylish");
         assertEquals(expected.strip(), actual.strip());
         System.out.println("1 ВСЕ РАБОТАЕТ");
     }
@@ -31,7 +31,7 @@ class DifferTest {
     @Test
     void testGenerateJsonPlain() throws IOException {
         String expected = readExpected("expectedPlain.txt");
-        String actual = Differ.generate(getFixturePath("file1.json"), getFixturePath("file2.json"), "plain");
+        String actual = DifferThreeParameters.generate(getFixturePath("file1.json"), getFixturePath("file2.json"), "plain");
         assertEquals(expected.strip(), actual.strip());
         System.out.println("2 ВСЕ РАБОТАЕТ");
     }
@@ -40,7 +40,7 @@ class DifferTest {
     void testGenerateJsonJson() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         var expected = mapper.readTree(readExpected("expectedJson.json"));
-        var actual = mapper.readTree(Differ.generate(getFixturePath("file1.json"), getFixturePath("file2.json"),
+        var actual = mapper.readTree(DifferThreeParameters.generate(getFixturePath("file1.json"), getFixturePath("file2.json"),
                 "json"));
         assertEquals(expected, actual);
         System.out.println("3 ВСЕ РАБОТАЕТ");
@@ -50,7 +50,7 @@ class DifferTest {
     @Test
     void testGenerateYamlStylish() throws IOException {
         String expected = readExpected("expectedStylish.txt");
-        String actual = Differ.generate(getFixturePath("file1.yml"), getFixturePath("file2.yml"), "stylish");
+        String actual = DifferThreeParameters.generate(getFixturePath("file1.yml"), getFixturePath("file2.yml"), "stylish");
         assertEquals(expected.strip(), actual.strip());
         System.out.println("4 ВСЕ РАБОТАЕТ");
     }
@@ -58,7 +58,7 @@ class DifferTest {
     @Test
     void testGenerateYamlPlain() throws IOException {
         String expected = readExpected("expectedPlain.txt");
-        String actual = Differ.generate(getFixturePath("file1.yml"), getFixturePath("file2.yml"), "plain");
+        String actual = DifferThreeParameters.generate(getFixturePath("file1.yml"), getFixturePath("file2.yml"), "plain");
         assertEquals(expected.strip(), actual.strip());
         System.out.println("5 ВСЕ РАБОТАЕТ");
     }
@@ -67,7 +67,7 @@ class DifferTest {
     void testGenerateYamlJson() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         var expected = mapper.readTree(readExpected("expectedJson.json"));
-        var actual = mapper.readTree(Differ.generate(getFixturePath("file1.yml"), getFixturePath("file2.yml"),
+        var actual = mapper.readTree(DifferThreeParameters.generate(getFixturePath("file1.yml"), getFixturePath("file2.yml"),
                 "json"));
         assertEquals(expected, actual);
         System.out.println("6 ВСЕ РАБОТАЕТ");
@@ -76,7 +76,7 @@ class DifferTest {
     @Test
     void testGenerateJsonDefault() throws IOException {
         String expected = readExpected("expectedStylish.txt");
-        String actual = Differ.generate(getFixturePath("file1.json"), getFixturePath("file2.json"));
+        String actual = DifferThreeParameters.generate(getFixturePath("file1.json"), getFixturePath("file2.json"));
         assertEquals(expected.strip(), actual.strip());
         System.out.println("7 ВСЕ РАБОТАЕТ");
     }
@@ -85,7 +85,7 @@ class DifferTest {
     @Test
     void testGenerateYamlDefault() throws IOException {
         String expected = readExpected("expectedStylish.txt");
-        String actual = Differ.generate(getFixturePath("file1.yml"), getFixturePath("file2.yml"));
+        String actual = DifferThreeParameters.generate(getFixturePath("file1.yml"), getFixturePath("file2.yml"));
         assertEquals(expected.strip(), actual.strip());
         System.out.println("8 ВСЕ РАБОТАЕТ");
     }

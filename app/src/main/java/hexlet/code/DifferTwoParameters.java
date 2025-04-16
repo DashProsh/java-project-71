@@ -1,8 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.formatters.Formatter;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,20 +8,8 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Differ {
 
-    public static String generate(String filePath1, String filePath2, String format) throws IOException {
-        Map<String, Object> fileInfo1 = Parser.parse(filePath1);
-        Map<String, Object> fileInfo2 = Parser.parse(filePath2);
-
-        List<Map<String, Object>> diff = calculateDiff(fileInfo1, fileInfo2);
-
-        return Formatter.format(diff, format);
-    }
-
-    public static String generate(String filePath1, String filePath2) throws IOException {
-        return generate(filePath1, filePath2, "stylish");
-    }
+public class DifferTwoParameters {
 
     public static List<Map<String, Object>> calculateDiff(Map<String, Object> fileInfo1,
                                                           Map<String, Object> fileInfo2) {
