@@ -19,6 +19,6 @@ public class Parser {
             objectMapper = new ObjectMapper(new YAMLFactory()); // YAML
         }
 
-        return objectMapper.readValue(content, new TypeReference<Map<String, Object>>() {});
+        return objectMapper.readValue(content, new TypeReference<Map<String, Object>>() { });
     }
 }
