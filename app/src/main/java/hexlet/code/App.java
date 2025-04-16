@@ -25,7 +25,7 @@ class App implements Runnable {
     @Override
     public void run() {
         try {
-            String diff = DifferThreeParameters.generate(filePath1, filePath2, format);
+            String diff = Differ.generate(filePath1, filePath2, format);
             System.out.println(diff);
         } catch (IOException e) {
             System.err.println("Ошибка при чтении файла: " + e.getMessage());

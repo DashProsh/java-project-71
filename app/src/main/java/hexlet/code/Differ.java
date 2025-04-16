@@ -8,7 +8,7 @@ import java.util.Map;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class DifferThreeParameters {
+public class Differ {
     public static String generate(String data1, String data2, String format) throws IOException {
 
         String content1 = new String(Files.readAllBytes(Paths.get(data1)));
