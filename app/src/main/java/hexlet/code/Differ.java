@@ -17,7 +17,7 @@ public class Differ {
         Map<String, Object> fileInfo1 = Parser.parseFromString(content1);
         Map<String, Object> fileInfo2 = Parser.parseFromString(content2);
 
-        List<Map<String, Object>> diff = DifferTwoParameters.calculateDiff(fileInfo1, fileInfo2);
+        List<Map<String, Object>> diff = DifferCalculation.calculateDiff(fileInfo1, fileInfo2);
 
         return Formatter.format(diff, format);
     }

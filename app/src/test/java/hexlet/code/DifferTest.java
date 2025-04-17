@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DifferTest {
@@ -19,7 +18,6 @@ class DifferTest {
     private static String getFixturePath(String fileName) {
         return Paths.get("src/test/resources/fixtures/" + fileName).toString();
     }
-
 
     @Test
     void testGenerateJsonStylish() throws IOException {
@@ -81,7 +79,6 @@ class DifferTest {
         assertEquals(expected.strip(), actual.strip());
         System.out.println("7 ВСЕ РАБОТАЕТ");
     }
-
 
     @Test
     void testGenerateYamlDefault() throws IOException {

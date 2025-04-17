@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 
-public class DifferTwoParameters {
+public class DifferCalculation {
 
     public static List<Map<String, Object>> calculateDiff(Map<String, Object> fileInfo1,
                                                           Map<String, Object> fileInfo2) {
