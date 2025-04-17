@@ -31,8 +31,8 @@ class App implements Runnable {
             System.err.println("Ошибка при чтении файла: " + e.getMessage());
         } catch (IllegalArgumentException e) {
             if (e.getMessage().contains("Unsupported file format")) {
-                System.err.println("Ошибка: неподдерживаемый формат файла. Поддерживаемые форматы: " +
-                        ".json, .yaml, .yml.");
+                System.err.println("Ошибка: неподдерживаемый формат файла. Поддерживаемые форматы: "
+                        + ".json, .yaml, .yml.");
             } else if (e.getMessage().contains("Invalid file path")) {
                 System.err.println("Ошибка: неверный путь к файлу. Проверьте правильность пути.");
             } else {
