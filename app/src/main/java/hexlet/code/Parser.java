@@ -14,15 +14,11 @@ public class Parser {
 
         // если JSON
         if (fileName.endsWith(".json")) {
-            objectMapper = new ObjectMapper(); // JSON
-        }
-        // если YAML
-        else if (fileName.endsWith(".yaml") || fileName.endsWith(".yml")) {
-            objectMapper = new ObjectMapper(new YAMLFactory()); // YAML
-        }
-        // Если формат не поддерживается
-        else {
-            throw new IllegalArgumentException("Ошибка: формат неясен");
+            objectMapper = new ObjectMapper(); //
+        } else if (fileName.endsWith(".yaml") || fileName.endsWith(".yml")) { // если YAML
+            objectMapper = new ObjectMapper(new YAMLFactory());
+        } else {
+            throw new IllegalArgumentException("Ошибка: формат неясен"); // Если формат не поддерживается
         }
 
         return objectMapper.readValue(content, new TypeReference<Map<String, Object>>() { });
