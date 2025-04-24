@@ -8,7 +8,6 @@ import java.io.IOException;
 
 @Command(name = "gendiff", mixinStandardHelpOptions = true, version = "gendiff 1.1.1",
         description = "Compares two configuration files and shows a difference.")
-
 class App implements Runnable {
 
     @Option(names = { "-f", "--format" }, paramLabel = "format",
@@ -30,14 +29,7 @@ class App implements Runnable {
         } catch (IOException e) {
             System.err.println("Ошибка при чтении файла: " + e.getMessage());
         } catch (IllegalArgumentException e) {
-            if (e.getMessage().contains("Unsupported file format")) {
-                System.err.println("Ошибка: неподдерживаемый формат файла. Поддерживаемые форматы: "
-                        + ".json, .yaml, .yml.");
-            } else if (e.getMessage().contains("Invalid file path")) {
-                System.err.println("Ошибка: неверный путь к файлу. Проверьте правильность пути.");
-            } else {
-                System.err.println("Ошибка: " + e.getMessage());
-            }
+            System.err.println("Ошибка: " + e.getMessage());
         } catch (Exception e) {
             System.err.println("Произошла ошибка: " + e.getMessage());
         }
